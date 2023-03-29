@@ -1,3 +1,7 @@
+// type TupleToObject<T extends readonly any[]> = {
+//     [value in T[number]]: value
+// }
+
 type TupleToObject<T extends readonly any[]> = {
-    [value in T[number]]: value
+    [V in T[number]]: V
 }
