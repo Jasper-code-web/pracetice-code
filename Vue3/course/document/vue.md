@@ -66,7 +66,7 @@ app2.mount('#container-2')
 <span>{{ data }}</span>
 ```
 
-### 指令
+### 指令Directives
 
 使用v-作为前缀，它们是由Vue提供的特殊attribute。它们将为渲染的DOM应用特殊的响应式行为。
 
@@ -94,17 +94,34 @@ span的内容将被替换为rawHtml的值
 
 * v-if
 
-  
-
 * v-for
 
 * v-on
 
 * v-slot
 
+#### 动态参数
 
+动态参数的值类型必须是string、null（显示移除绑定）， 其它类型会发出警告。限制：1.在动态参数中引号‘’和空格<space/>都是不合法的 2.应该尽量避免使用大写字母，浏览器会强制转换为小写字母
 
+```html
+<!--
+注意，参数表达式有一些约束，
+参见下面“动态参数值的限制”与“动态参数语法的限制”章节的解释
+-->
+<a v-bind:[attributeName]="url"> ... </a>
 
+<!-- 简写 -->
+<a :[attributeName]="url"> ... </a>
+```
+
+#### 修饰符Modifiers
+
+修饰符是以点开头的特殊后缀，表明指令需要以一些特殊的方式绑定。例如`.prevent`修饰符会告知 `v-on` 指令对触发的事件调用 `event.preventDefault()`：
+
+```html
+<form @submit.prevent="onSubmit">...</form>
+```
 
 
 

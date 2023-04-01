@@ -1,1 +1,2 @@
-type MyParameter<T extends (...args: any[]) => any> = T extends (...args: infer Param) => any ? Param : []
+type MyParameter<T extends (...args: any[]) => any> = 
+T extends (...args: infer Params) => any ? Params : never

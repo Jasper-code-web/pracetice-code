@@ -9,7 +9,12 @@
 // ? Awaited<R> : T;
 
 
-type MyAwaited<T> = T extends object & {
-  then: (onfulfilled: infer F) => any
-} ? F extends (args: infer V) => any ? MyAwaited<V> : never : T
+// type MyAwaited<T> = T extends object & {
+//   then: (onfulfilled: infer F) => any
+// } ? F extends (args: infer V) => any ? MyAwaited<V> : never : T
 
+type MyAwaited<T> = T extends object & {
+    then: (onfullfilled: infer F) => any
+} ? 
+F extends (args: infer V) => any ? MyAwaited<V> : F
+: T
