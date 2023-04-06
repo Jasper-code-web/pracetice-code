@@ -11,7 +11,18 @@ type MyEqual<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T extends 
     //如果有export/import的话,那么就是模块
     //如果没有那就是全局，可以直接在别的模块引用
 
-export type Includes<T extends readonly any[], U> = 
-T extends [infer First, ... infer Rest] ?
-MyEqual<First, U> extends true ? true : Includes<Rest, U>
-: false
+// export type Includes<T extends readonly any[], U> = 
+// T extends [infer First, ... infer Rest] ?
+// MyEqual<First, U> extends true ? true : Includes<Rest, U>
+// : false
+
+
+
+
+
+
+
+
+
+
+type Includes<T extends readonly any[], U> = any

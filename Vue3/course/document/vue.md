@@ -123,7 +123,61 @@ span的内容将被替换为rawHtml的值
 <form @submit.prevent="onSubmit">...</form>
 ```
 
+# 响应式基础
 
+# 计算属性
+
+ ```javascript
+ const publishedBooksMessage = computed(() => {
+   return author.books.length > 0 ? 'Yes' : 'No'
+ })
+ ```
+
+计算属性值会基于其响应式依赖被缓存。一个计算属性仅会在其响应式依赖被更新时重新计算。
+
+```javascript
+const now = computed(() => Date.now())
+```
+
+以上计算属性`` now `` 永远不会更新，因为其依赖`` Data.now() ``不是响应式数据
+
+## 可写计算属性
+
+```javascript
+<script setup>
+import { ref, computed } from 'vue'
+
+const firstName = ref('John')
+const lastName = ref('Doe')
+
+const fullName = computed({
+  // getter
+  get() {
+    return firstName.value + ' ' + lastName.value
+  },
+  // setter
+  set(newValue) {
+    // 注意：我们这里使用的是解构赋值语法
+    [firstName.value, lastName.value] = newValue.split(' ')
+  }
+})
+</script>
+```
+
+# 表单输入绑定
+
+```javascript
+<input
+  :value="text"
+  @input="event => text = event.target.value">
+      
+//语法糖
+<input v-model="text">
+```
+
+- 文本类型的 `<input>` 和 `<textarea>` 元素会绑定 `value` property 并侦听 `input` 事件；
+- `<input type="checkbox">` 和 `<input type="radio">` 会绑定 `checked` property 并侦听 `change` 事件；
+- `<select>` 会绑定 `value` property 并侦听 `change` 事件。
 
 
 

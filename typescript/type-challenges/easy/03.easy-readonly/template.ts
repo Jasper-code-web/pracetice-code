@@ -2,7 +2,5 @@
 //     readonly [P in keyof T]: T[P]
 // }
 
+type MyReadonly<T> = any
 
-type MyReadonly<T> = {
-    readonly [K in keyof T]: T[K]
-}

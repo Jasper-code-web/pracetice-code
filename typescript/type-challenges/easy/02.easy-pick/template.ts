@@ -10,6 +10,4 @@ interface Todo {
     completed: boolean
 }
 
-type MyPick<T, K extends keyof T> = {
-    [V in K]: T[V]
-}
+type MyPick<T, K> = any
