@@ -8,4 +8,4 @@
 
 
 
-type MyParameters<T extends (...args: any[]) => any> = any
+type MyParameter<T extends (...args: any[]) => any> = any

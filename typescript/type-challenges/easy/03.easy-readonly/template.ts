@@ -3,4 +3,3 @@
 // }
 
 type MyReadonly<T> = any
-
