@@ -1,30 +1,46 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    {{ Man }}
+    <br />
+    shallowRef: {{ state.count.name }}
+    <br/>
+    <button @click="change">改变</button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script setup lang="ts">
+import { track } from '@vue/reactivity';
+import { trigger } from '@vue/reactivity';
+import { ref, isRef, shallowRef, customRef } from 'vue';
+import type { Ref } from 'vue';
+
+const Man: Ref<string> = ref('小满')
+const Man1 = 'a'
+const state: any = shallowRef({ count: {name: 1} })
+
+
+const change = () => {
+  Man.value= '我是ref'
+  state.value.count.name = '我是shallowRef'
+}
+
+function myRef<T>(value: T) {
+  return customRef((track, trigger) => {
+    return {
+      get() {
+        track()
+        return value
+      },
+      set(newValue) {
+        value = newValue
+        trigger()
+      }
+    }
+  })
+}
+
+
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
