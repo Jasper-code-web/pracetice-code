@@ -25,4 +25,4 @@ type MyEqual<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T extends 
 
 
 
-type Includes<T extends readonly any[], U> = any
+export type Includes<T extends readonly any[], U> = any
