@@ -22,4 +22,4 @@
 
 
 
-type MyOmit<T, U> = any
+type MyOmit<T, K> = any
