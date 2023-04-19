@@ -1,23 +1,23 @@
 <template>
   <div>
-    {{ re }}
-    <button @click="add">添加</button>
+    <Suspense>
+      <template #default>
+        <Sync />
+      </template>
+      <template #fallback>
+        <Skeleton />
+      </template>
+    </Suspense>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { defineAsyncComponent } from 'vue';
+import Skeleton from '@/components/suspense/skeleton.vue'
 
-let re = reactive([1, 2])
+const Sync = defineAsyncComponent(() => import('@/components/suspense/sync.vue'))
 
-// setTimeout(() => {
-//   re = [1]
-//   console.log('re', re)
-// }, 2000)
-const add = () => {
-  re = [1]
-  console.log('re', re)
-}
 </script>
 
 <style scoped></style>
