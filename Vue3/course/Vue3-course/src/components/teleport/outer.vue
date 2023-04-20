@@ -13,4 +13,10 @@
 import MyModal from './myModal.vue';
 </script>
 
-<style scoped></style>
+<style lang="less" scoped>
+.outer{
+    transform: translate(30%,30%);
+    // perspective: 100px;
+    filter: grayscale(100%);
+}
+</style>

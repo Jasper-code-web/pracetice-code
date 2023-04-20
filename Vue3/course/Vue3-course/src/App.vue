@@ -1,22 +1,11 @@
 <template>
   <div>
-    <Suspense>
-      <template #default>
-        <Sync />
-      </template>
-      <template #fallback>
-        <Skeleton />
-      </template>
-    </Suspense>
-
+    <Outer />
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue';
-import Skeleton from '@/components/suspense/skeleton.vue'
-
-const Sync = defineAsyncComponent(() => import('@/components/suspense/sync.vue'))
+import Outer from '@/components/teleport/outer.vue';
 
 </script>
 
