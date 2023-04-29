@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <Outer />
+  <div class="demo">
+    <!-- <MyAnimation />
+    <Animation1 /> -->
+    <PlaneTransition />
   </div>
 </template>
 
-<script setup lang="ts">
-import Outer from '@/components/teleport/outer.vue';
-
+<script lang="ts" setup>
+import MyAnimation from '@/components/transition/index.vue'
+import Animation1 from './components/transition/animation1.vue';
+import PlaneTransition from './components/transition/planeTransition.vue';
 </script>
 
-<style scoped></style>
