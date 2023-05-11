@@ -7,11 +7,13 @@ const A = (_, {slots}) => (<>
 
 export default defineComponent({
     setup() {
-        const slot = {
-            default: () => (<div>小满default slot</div>)
+        const slots = {
+            default: () => (<>
+                <section>My name is Jasper</section>
+            </>)
         }
         return () => (<>
-            <A v-slots={slot}></A>
+            <A v-slots={slots}></A>
         </>)
     }
 })

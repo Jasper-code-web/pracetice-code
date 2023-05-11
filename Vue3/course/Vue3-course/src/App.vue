@@ -3,7 +3,8 @@
     <!-- <MyAnimation />
     <Animation1 /> -->
     <!-- <PlaneTransition /> -->
-    <AppT @handle="handle" name="Jasper"></AppT>
+    <!-- <AppT @handle="handle" name="Jasper"></AppT> -->
+    <TestModal></TestModal>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import MyAnimation from '@/components/transition/index.vue'
 import Animation1 from './components/transition/animation1.vue';
 import PlaneTransition from './components/transition/planeTransition.vue';
 import AppT from './App'
+import TestModal from '@/components/testModal/index.vue';
 
 const handle = (res: any) => {
   console.log('res',res)
